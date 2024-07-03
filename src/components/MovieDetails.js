@@ -40,6 +40,7 @@ function MovieDetails({
       runtime: Number(runtime.split(" ").at(0)),
       year,
     };
+
     onAddWatchedMovie(newWatchedMovie);
     onCloseMovie();
   }
