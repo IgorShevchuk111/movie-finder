@@ -176,6 +176,10 @@ body {
   font-size: 1.8rem;
 }
 
+.list h3:hover {
+  text-decoration: underline;
+}
+
 .list div {
   display: flex;
   align-items: center;
@@ -320,7 +324,7 @@ body {
 .btn-back {
   position: absolute;
   top: 0.6rem;
-  left: 0.6rem;
+  right: 4.6rem;
   height: 3.2rem;
   aspect-ratio: 1;
   border-radius: 50%;
