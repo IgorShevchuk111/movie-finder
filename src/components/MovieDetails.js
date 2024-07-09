@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
 
@@ -16,6 +16,8 @@ function MovieDetails({
   const isInWatchedList = watchedMovies.find(
     (movie) => movie.imdbID === selectedMovieId
   );
+
+  const countRef = useRef(0);
 
   const {
     Title: title,
@@ -39,6 +41,7 @@ function MovieDetails({
       userRating,
       runtime: Number(runtime.split(" ").at(0)),
       year,
+      countRatingDecisions: countRef.current,
     };
 
     onAddWatchedMovie(newWatchedMovie);
@@ -69,6 +72,10 @@ function MovieDetails({
 
     return () => (document.title = "Movie Finder");
   }, [title]);
+
+  useEffect(() => {
+    if (userRating) countRef.current++;
+  }, [userRating]);
 
   return (
     <div className="details">
